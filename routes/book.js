@@ -22,4 +22,13 @@ router.post('/addBook', function(req, res, next) {
     })
 })
 
+router.get('/delete/:id', function(req, res, next) {
+    db.deleteBook(req.params.id).then(function() {
+        return db.listBooks().then(function(books) {
+            res.render('book', {books: books});
+        })
+    })
+
+})
+
 module.exports = router;

@@ -26,6 +26,10 @@ input, label {
   margin-top: 2rem;
   margin-left: 2rem; }
 
+.bookPicture {
+  height: 10%;
+  width: 10%; }
+
 header {
   position: relative;
   background-color: #000;
@@ -89,5 +93,9 @@ input, label {
   display: block;
   margin-top: 2rem;
   margin-left: 2rem; }
+
+.bookPicture {
+  height: 10%;
+  width: 10%; }
 
 /*# sourceMappingURL=style.css.map */

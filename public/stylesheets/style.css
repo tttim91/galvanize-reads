@@ -30,6 +30,10 @@ input, label {
   height: 10%;
   width: 10%; }
 
+.authorPicture {
+  height: 10%;
+  width: 10%; }
+
 header {
   position: relative;
   background-color: #000;
@@ -95,6 +99,10 @@ input, label {
   margin-left: 2rem; }
 
 .bookPicture {
+  height: 10%;
+  width: 10%; }
+
+.authorPicture {
   height: 10%;
   width: 10%; }
 

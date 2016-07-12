@@ -4,9 +4,12 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    db.listBooks().then(function(books) {
-         res.render('book', {books: books});
+    db.getGroupedAuthorsByBook().then(function() {
+        res.render('book');
     })
+    // db.listBooks().then(function(books) {
+    //      res.render('book', {books: books});
+    // })
 });
 
 router.get('/addBook', function(req, res, next) {
@@ -43,8 +46,11 @@ router.post('/:id/edit', function(req, res, next) {
 })
 
 router.get('/:id', function(req, res, next) {
-    db.getBookWithGenre(req.params.id).then(function(book) {
-        res.render('bookDetail', {book:book});
+    Promise.all([db.getBookWithGenre(req.params.id), db.getAuthorsByBook(req.params.id)])
+    .then(function(data) {
+        var book = data[0];
+        var authors = data[1];
+        res.render('bookDetail', {book:book, authors:authors});
     })
 })
 

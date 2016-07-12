@@ -40,7 +40,12 @@ router.post('/:id/edit', function(req, res, next) {
     db.editBook(req.params.id, req.body).then(function() {
         res.redirect('/book');
     })
+})
 
+router.get('/:id', function(req, res, next) {
+    db.getBookWithGenre(req.params.id).then(function(book) {
+        res.render('bookDetail', {book:book});
+    })
 })
 
 module.exports = router;

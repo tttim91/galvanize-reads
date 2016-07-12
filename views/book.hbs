@@ -2,7 +2,7 @@
 <ul class="books">
     {{#each books}}
         <div class='book'>
-            <img class="bookPicture" src="{{this.cover_url}}"></img>
+            <a href="/book/{{this.book_id}}"><img class="bookPicture" src="{{this.cover_url}}"></img></a>
             <li>{{this.title}}</li>
             <li>{{this.name}}</li>
             <li>{{this.description}}</li>
@@ -11,4 +11,4 @@
         </div>
     {{/each}}
 </ul>
-<a class="addabook" href="/book/addBook">Add a Book</a>
+<a href="/book/addBook">Add a Book</a>

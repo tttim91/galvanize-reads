@@ -20,5 +20,10 @@ module.exports = {
     },
     getBookById: function(id) {
         return knex('book').where('book.id', '=', id).first();
+    },
+    getBookWithGenre: function(id) {
+        return knex('book').select('book.id as book_id', 'book.title', 'book.description', 'book.cover_url', 'genre.id as genre_id', 'genre.name').join('genre', function() {
+            this.on('genre.id', '=', 'book.genre_id')
+        }).where('book.id', '=', id).first();
     }
 }

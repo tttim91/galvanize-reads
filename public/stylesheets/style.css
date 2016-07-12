@@ -1,6 +1,22 @@
 :root {
   font-size: 1vw; }
 
+h2 {
+  position: absolute;
+  top: 20%;
+  font-size: 2rem; }
+
+.books {
+  position: absolute;
+  top: 25%; }
+
+.book {
+  margin-top: 1.5rem;
+  margin-left: 1rem; }
+
+a:visited {
+  color: #F7901E; }
+
 header {
   position: absolute;
   background-color: #000;
@@ -39,5 +55,21 @@ h1 {
   height: 1rem;
   font-size: 1.5rem;
   text-align: center; }
+
+h2 {
+  position: absolute;
+  top: 20%;
+  font-size: 2rem; }
+
+.books {
+  position: absolute;
+  top: 25%; }
+
+.book {
+  margin-top: 1.5rem;
+  margin-left: 1rem; }
+
+a:visited {
+  color: #F7901E; }
 
 /*# sourceMappingURL=style.css.map */

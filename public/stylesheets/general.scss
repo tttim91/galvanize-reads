@@ -1,0 +1,19 @@
+h2 {
+    position: absolute;
+    top: 20%;
+    font-size: 2rem;
+}
+
+.books {
+    position: absolute;
+    top: 25%;
+}
+
+.book {
+    margin-top: 1.5rem;
+    margin-left: 1rem;
+}
+
+a:visited {
+    color: $galvanize-primary;
+}

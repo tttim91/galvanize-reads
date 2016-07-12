@@ -2,12 +2,12 @@
   font-size: 1vw; }
 
 h2 {
-  position: absolute;
+  position: relative;
   top: 20%;
   font-size: 2rem; }
 
 .books {
-  position: absolute;
+  position: relative;
   top: 25%; }
 
 .book {
@@ -17,8 +17,17 @@ h2 {
 a:visited {
   color: #F7901E; }
 
+.addabook {
+  position: relative;
+  bottom: 5%; }
+
+input, label {
+  display: block;
+  margin-top: 2rem;
+  margin-left: 2rem; }
+
 header {
-  position: absolute;
+  position: relative;
   background-color: #000;
   height: 18%;
   display: flex;
@@ -57,12 +66,12 @@ h1 {
   text-align: center; }
 
 h2 {
-  position: absolute;
+  position: relative;
   top: 20%;
   font-size: 2rem; }
 
 .books {
-  position: absolute;
+  position: relative;
   top: 25%; }
 
 .book {
@@ -71,5 +80,14 @@ h2 {
 
 a:visited {
   color: #F7901E; }
+
+.addabook {
+  position: relative;
+  bottom: 5%; }
+
+input, label {
+  display: block;
+  margin-top: 2rem;
+  margin-left: 2rem; }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,11 +1,11 @@
 h2 {
-    position: absolute;
+    position: relative;
     top: 20%;
     font-size: 2rem;
 }
 
 .books {
-    position: absolute;
+    position: relative;
     top: 25%;
 }
 
@@ -16,4 +16,15 @@ h2 {
 
 a:visited {
     color: $galvanize-primary;
+}
+
+.addabook {
+    position: relative;
+    bottom: 5%;
+}
+
+input, label {
+    display: block;
+    margin-top: 2rem;
+    margin-left: 2rem;
 }

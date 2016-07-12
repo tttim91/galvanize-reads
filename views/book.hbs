@@ -6,7 +6,8 @@
             <li>{{this.title}}</li>
             <li>{{this.name}}</li>
             <li>{{this.description}}</li>
-            <a href="/book/delete/{{this.book_id}}"><i class="fa fa-remove"></i></a>
+            <a href="/book/{{this.book_id}}/edit"><i class="fa fa-edit"></i></a>
+            <a href="/book/{{this.book_id}}/delete"><i class="fa fa-remove"></i></a>
         </div>
     {{/each}}
 </ul>

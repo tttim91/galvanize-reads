@@ -15,7 +15,10 @@ module.exports = {
     deleteBook: function(id) {
         return knex('book').where('id', '=', id).first().del();
     },
-    getStaff: function(id) {
-        return knex('instructor').where('id', '=', id)
+    editBook: function(id, body) {
+        return knex('book').where('id', '=', id).first().update(body);
+    },
+    getBookById: function(id) {
+        return knex('book').where('book.id', '=', id).first();
     }
 }

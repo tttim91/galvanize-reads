@@ -1,0 +1,44 @@
+header {
+    position: absolute;
+    background-color: $black;
+    height: 18%;
+    display: flex;
+    color: $galvanize-primary;
+    width: 100vw;
+    top: 0;
+    left: 0;
+}
+
+h1 {
+    display: inline-block;
+    width: 20%;
+    font-size: 2.5rem;
+    margin-left: 1rem;
+}
+
+.logo {
+    padding: 1rem;
+}
+
+.logoImage {
+    display: inline-block;
+    height: 5%;
+    width: 5%;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.links a{
+    text-decoration: none;
+    color: $galvanize-primary;
+    padding: 2rem;
+    background-color: $header-primary;
+    margin-right: 2rem;
+    height: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+}

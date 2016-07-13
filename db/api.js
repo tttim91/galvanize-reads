@@ -88,7 +88,13 @@ module.exports = {
                     }
                 }
             }
-            return data;
+            var books = [];
+            var page = 1;
+            var maxPage = Math.ceil(data.length/10);
+            for(var i=0; i<maxPage; i++) {
+                books.push(data.slice(i*10, i*10+10))
+            }
+            return books;
         })
     },
     getGroupedAuthorsByBookSearch: function(query) {

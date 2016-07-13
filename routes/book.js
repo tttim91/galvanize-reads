@@ -4,15 +4,22 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    if(!req.query.bookSearch) {
-        Promise.all([db.getGroupedAuthorsByBook(),db.listAuthors()])
+    if(req.query.bookSearch) {
+        Promise.all([db.getGroupedAuthorsByBookSearch(req.query.bookSearch),db.listAuthors()])
+        .then(function(data) {
+            var books = data[0];
+            var author = data[1];
+            res.render('book', {data:books, dataLength: books.length, author: author});
+        })
+    } else if(req.query.genre) {
+        Promise.all([db.getGroupedAuthorsByBookWithGenre(req.query.genre),db.listAuthors()])
         .then(function(data) {
             var books = data[0];
             var author = data[1];
             res.render('book', {data:books, dataLength: books.length, author: author});
         })
     } else {
-        Promise.all([db.getGroupedAuthorsByBookSearch(req.query.bookSearch),db.listAuthors()])
+        Promise.all([db.getGroupedAuthorsByBook(),db.listAuthors()])
         .then(function(data) {
             var books = data[0];
             var author = data[1];

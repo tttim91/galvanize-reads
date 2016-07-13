@@ -5,6 +5,15 @@
     </label>
     <input type="submit" name="name" value="Submit">
 </form>
+<form class="" action="/book" method="GET">
+    <label for="genre">Genre Filter:
+        <select class="" name="genre" id="genre">
+            <option value="Javascript">Javascript</option>
+            <option value="Python">Python</option>
+        </select>
+    </label>
+    <input type="submit" name="name" value="Submit">
+</form>
 <div class="books">
     {{#each data}}
         <div class='book'>

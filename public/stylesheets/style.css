@@ -154,6 +154,28 @@ input, label {
 .genre {
   margin-bottom: 2rem; }
 
+.globalSearch {
+  position: relative;
+  background-color: #696969;
+  width: 20%;
+  padding: 1.5rem;
+  left: 3%;
+  top: 5vh; }
+
+.searchLabel {
+  font-weight: bold;
+  font-size: 2rem; }
+
+.toggle {
+  position: relative;
+  left: 33%;
+  margin-top: 1.5rem; }
+
+.globalSearchSubmit {
+  position: relative;
+  left: 10%;
+  width: 52%; }
+
 header {
   position: relative;
   background-color: #696969;
@@ -346,5 +368,27 @@ input, label {
 
 .genre {
   margin-bottom: 2rem; }
+
+.globalSearch {
+  position: relative;
+  background-color: #696969;
+  width: 20%;
+  padding: 1.5rem;
+  left: 3%;
+  top: 5vh; }
+
+.searchLabel {
+  font-weight: bold;
+  font-size: 2rem; }
+
+.toggle {
+  position: relative;
+  left: 33%;
+  margin-top: 1.5rem; }
+
+.globalSearchSubmit {
+  position: relative;
+  left: 10%;
+  width: 52%; }
 
 /*# sourceMappingURL=style.css.map */

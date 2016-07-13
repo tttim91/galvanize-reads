@@ -5,7 +5,6 @@ var db = require('../db/api');
 /* GET home page. */
 router.get('/', function(req, res, next) {
     if(!req.query.authorSearch) {
-        console.log("NO QUERY HARD")
         Promise.all([db.getGroupedBooksByAuthor(),db.listBooks()])
         .then(function(data) {
             var authors = data[0];
@@ -23,7 +22,6 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    console.log(req.body.authorSearch)
     res.redirect('/author')
 })
 

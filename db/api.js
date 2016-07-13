@@ -169,7 +169,7 @@ module.exports = {
             this.on('author.id', '=', 'book_author.author_id')
         }).join('book', function() {
             this.on('book.id', '=', 'book_author.book_id')
-        }).where('author.first_name', 'ilike', '%'+query+'%').orWhere('author.last_name', 'like', '%'+query+'%').then(function(data) {
+        }).where('author.first_name', 'ilike', '%'+query+'%').orWhere('author.last_name', 'ilike', '%'+query+'%').then(function(data) {
             var count = 2;
             var countArray = [];
             for(var i=0; i<data.length;i++) {

@@ -32,7 +32,7 @@ router.post('/addBook', function(req, res, next) {
     var author = req.body.author;
     db.findNextBookId().then(function(id) {
         return db.addBook(book).then(function() {
-            db.addJoinTable(author, id.id)
+            db.addJoinTable(author, id.id+1)
             .then(function() {
                 res.redirect('/book')
             })

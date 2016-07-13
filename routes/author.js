@@ -17,12 +17,26 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/addAuthor', function(req, res, next) {
-    res.render('addAuthor');
+    db.listBooks().then(function(books) {
+        res.render('addAuthor', {books:books});
+    })
 });
 
 router.post('/addAuthor', function(req, res, next) {
-    db.addAuthor(req.body).then(function() {
-        res.redirect('/author');
+    var author = {first_name:req.body.first_name,
+                last_name:req.body.last_name,
+                biography:req.body.biography,
+                portrait_url:req.body.portrait_url
+                }
+    var book = req.body.book;
+    console.log(book)
+    db.findNextAuthorId().then(function(id) {
+        return db.addAuthor(author).then(function() {
+            return db.addJoinTable(id.id+1, book)
+            .then(function() {
+                res.redirect('/author')
+            })
+        })
     })
 })
 

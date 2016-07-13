@@ -8,21 +8,35 @@ router.get('/', function(req, res, next) {
     .then(function(data) {
         var books = data[0];
         var author = data[1];
-        console.log("About to render page")
         res.render('book', {data:books, dataLength: books.length, author: author});
     })
 });
 
 router.get('/addBook', function(req, res, next) {
-    db.getGenres().then(function(genres) {
-        res.render('addBook', {genres:genres});
+    Promise.all([db.getGenres(),db.listAuthors()])
+        .then(function(data) {
+        var genres = data[0];
+        var authors = data[1];
+        res.render('addBook', {genres:genres, authors: authors});
     })
 
 });
 
 router.post('/addBook', function(req, res, next) {
-    db.addBook(req.body).then(function() {
-        res.redirect('/book');
+    var book = {title:req.body.title,
+                genre_id:req.body.genre_id,
+                description:req.body.description,
+                cover_url:req.body.cover_url
+                }
+    console.log(book);
+    var author = req.body.author;
+    db.findNextBookId().then(function(id) {
+        return db.addBook(book).then(function() {
+            db.addJoinTable(author, id.id)
+            .then(function() {
+                res.redirect('/book')
+            })
+        })
     })
 })
 

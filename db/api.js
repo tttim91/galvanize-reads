@@ -128,5 +128,13 @@ module.exports = {
             console.log(data)
             return data;
         })
+    },
+    addJoinTable: function(author_id, book_id) {
+        console.log(author_id + " " + book_id)
+        return knex('book_author').insert({author_id:author_id, book_id:book_id});
+    },
+    findNextBookId: function() {
+        return knex('book').select('id').orderBy('id', 'desc').limit(1).first()
     }
+
 }

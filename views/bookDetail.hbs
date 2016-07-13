@@ -1,17 +1,19 @@
-<h2>{{book.title}}</h2>
-<img src="{{book.cover_url}}" />
-<p>
-    {{book.description}}
-</p>
-<p>
-    Genre: {{book.name}}
-</p>
-<h3>Authors:</h3>
-{{#each authors}}
-    <a href="/author/{{this.id}}"><p>
-        {{this.first_name}} {{this.last_name}}
-    </p></a>
-{{/each}}
-<a href="/book/{{book.book_id}}/edit"><i class="fa fa-edit"></i></a>
-<a href="/book/{{book.book_id}}/confirmDelete"><i class="fa fa-remove"></i></a>
+<div class="details">
+    <h2 class="title">{{book.title}}</h2>
+    <img class="bookPictureBig" src="{{book.cover_url}}" />
+    <p class="description">
+        {{book.description}}
+    </p>
+    <p class="genre">
+        Genre: {{book.name}}
+    </p>
+    <h3>Authors:</h3>
+    {{#each authors}}
+        <a href="/author/{{this.id}}"><p>
+            {{this.first_name}} {{this.last_name}}
+        </p></a>
+    {{/each}}
+    <a href="/book/{{book.book_id}}/edit"><i class="fa fa-edit edit"></i></a>
+    <a href="/book/{{book.book_id}}/confirmDelete"><i class="fa fa-remove remove"></i></a>
+</div>
 <a href="/book">See All Books</a>

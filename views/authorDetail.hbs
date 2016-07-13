@@ -1,14 +1,16 @@
-<h2>{{author.first_name}} {{author.last_name}}</h2>
-<img src="{{author.portrait_url}}" />
-<p>
-    {{author.biography}}
-</p>
-<h3>Books:</h3>
-{{#each books}}
-    <a href="/book/{{this.id}}"><p>
-        {{this.title}}
-    </p></a>
-{{/each}}
-<a href="/author/{{author.id}}/edit"><i class="fa fa-edit"></i></a>
-<a href="/author/{{author.id}}/confirmDelete"><i class="fa fa-remove"></i></a>
+<div class="details">
+    <h2 class="authorName">{{author.first_name}} {{author.last_name}}</h2>
+    <img class="authorPictureBig" src="{{author.portrait_url}}" />
+    <p class="biography">
+        {{author.biography}}
+    </p>
+    <h3>Books:</h3>
+    {{#each books}}
+        <a href="/book/{{this.id}}"><p>
+            {{this.title}}
+        </p></a>
+    {{/each}}
+    <a href="/author/{{author.id}}/edit"><i class="fa fa-edit edit"></i></a>
+    <a href="/author/{{author.id}}/confirmDelete"><i class="fa fa-remove remove"></i></a>
+</div>
 <a href="/author">See All Authors</a>

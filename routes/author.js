@@ -4,17 +4,28 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Promise.all([db.getGroupedBooksByAuthor(),db.listBooks()])
-    .then(function(data) {
-        var authors = data[0];
-        var book = data[1];
-        console.log("About to render page")
-        res.render('author', {data:authors, dataLength: authors.length, book: book});
-    })
-    // db.listAuthors().then(function(authors) {
-    //      res.render('author', {authors: authors});
-    // })
+    if(!req.query.authorSearch) {
+        console.log("NO QUERY HARD")
+        Promise.all([db.getGroupedBooksByAuthor(),db.listBooks()])
+        .then(function(data) {
+            var authors = data[0];
+            var book = data[1];
+            res.render('author', {data:authors, dataLength: authors.length, book: book});
+        })
+    } else {
+        Promise.all([db.getGroupedBooksByAuthorSearch(req.query.authorSearch),db.listBooks()])
+        .then(function(data) {
+            var authors = data[0];
+            var book = data[1];
+            res.render('author', {data:authors, dataLength: authors.length, book: book});
+        })
+    }
 });
+
+router.post('/', function(req, res, next) {
+    console.log(req.body.authorSearch)
+    res.redirect('/author')
+})
 
 router.get('/addAuthor', function(req, res, next) {
     db.listBooks().then(function(books) {

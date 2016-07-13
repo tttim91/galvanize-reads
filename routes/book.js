@@ -4,12 +4,21 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    Promise.all([db.getGroupedAuthorsByBook(),db.listAuthors()])
-    .then(function(data) {
-        var books = data[0];
-        var author = data[1];
-        res.render('book', {data:books, dataLength: books.length, author: author});
-    })
+    if(!req.query.bookSearch) {
+        Promise.all([db.getGroupedAuthorsByBook(),db.listAuthors()])
+        .then(function(data) {
+            var books = data[0];
+            var author = data[1];
+            res.render('book', {data:books, dataLength: books.length, author: author});
+        })
+    } else {
+        Promise.all([db.getGroupedAuthorsByBookSearch(req.query.bookSearch),db.listAuthors()])
+        .then(function(data) {
+            var books = data[0];
+            var author = data[1];
+            res.render('book', {data:books, dataLength: books.length, author: author});
+        })
+    }
 });
 
 router.get('/addBook', function(req, res, next) {

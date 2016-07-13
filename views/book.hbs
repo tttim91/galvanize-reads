@@ -1,24 +1,31 @@
 <h2>Books</h2>
-<label for="bookSearch">Search for a book:
-    <input type="text" name="bookSearch" id="bookSearch" placeholder="Search for a book">
-</label>
-<ul class="books">
+<form class="" action="/book" method="GET">
+    <label for="bookSearch">Search for a book:
+        <input type="text" name="bookSearch" id="bookSearch" placeholder="Search for a book">
+    </label>
+    <input type="submit" name="name" value="Submit">
+</form>
+<div class="books">
     {{#each data}}
         <div class='book'>
-            <a href="/book/{{this.book_id}}"><img class="bookPicture" src="{{this.cover_url}}"></img></a>
-            <li>{{this.title}}</li>
-            <li>{{this.name}}</li>
-            <li>{{this.description}}</li>
-            <h3>Authors:</h3>
-            {{#each authors}}
-                <a href="/author/{{this.id}}">{{this.name}}</a><br/>
-            {{/each}}
-            <a href="/book/{{this.book_id}}/edit"><i class="fa fa-edit"></i></a>
-            <a href="/book/{{this.book_id}}/confirmDelete"><i class="fa fa-remove"></i></a>
+            <div>
+                <a href="/book/{{this.book_id}}"><img class="bookPicture" src="{{this.cover_url}}"></img></a>
+            </div>
+            <div>
+                <p class="title">{{this.title}}</p>
+                <p>{{this.name}}</p>
+                <p class="description">{{this.description}}</p>
+                <h3>Authors:</h3>
+                {{#each authors}}
+                    <a class="bookAuthor" href="/author/{{this.id}}">{{this.name}}</a><br/>
+                {{/each}}
+                <a href="/book/{{this.book_id}}/edit"><i class="fa fa-edit edit"></i></a>
+                <a href="/book/{{this.book_id}}/confirmDelete"><i class="fa fa-remove remove"></i></a>
+            </div>
         </div>
     {{/each}}
-</ul>
-<p>
+</div>
+<p class="bookAmount">
     There are {{dataLength}} books in this library!!!
 </p>
-<a href="/book/addBook">Add a Book</a>
+<a class="addBook" href="/book/addBook">Add a Book</a>

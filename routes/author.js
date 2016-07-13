@@ -19,6 +19,12 @@ router.post('/addAuthor', function(req, res, next) {
     })
 })
 
+router.get('/:id/confirmDelete', function(req, res, next) {
+    db.getAuthorById(req.params.id).then(function(author) {
+        res.render('deleteAuthor', {author: author});
+    })
+})
+
 router.get('/:id/delete', function(req, res, next) {
     db.deleteAuthor(req.params.id).then(function() {
         res.redirect('/author');
@@ -26,7 +32,7 @@ router.get('/:id/delete', function(req, res, next) {
 })
 
 router.get('/:id/edit', function(req, res, next) {
-    return db.getAuthorById(req.params.id).then(function(author) {
+    db.getAuthorById(req.params.id).then(function(author) {
         res.render('editAuthor', {author: author});
     })
 });

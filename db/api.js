@@ -54,12 +54,11 @@ module.exports = {
         }).join('author', function() {
             this.on('author.id', '=', 'book_author.author_id')
         }).then(function(data) {
-            console.log(data);
             var count = 2;
-            for(var i=0; i<data.length-1;i++) {
+            var countArray = [];
+            for(var i=0; i<data.length;i++) {
                 for(var j=i+1; j<data.length; j++) {
                     if(data[i].title == data[j].title) {
-                        console.log("HARDDD EQQQUALLSSS");
                         data[i]['first_name'+count]=data[j].first_name;
                         data[i]['last_name'+count]=data[j].last_name;
                         data.splice(j,1);
@@ -67,10 +66,22 @@ module.exports = {
                         count++;
                     }
                 }
+                countArray.push(count);
                 count = 2;
+                data[i].authors = [];
             }
-            console.log("HAAAAAIIIII");
+            for(var i=0; i<countArray.length; i++) {
+                for(var j=1; j<countArray[i]; j++) {
+                    if(j==1){
+                        data[i].authors.push(data[i]['first_name']+" "+data[i]['last_name']);
+                    }
+                    else {
+                        data[i].authors.push(data[i]['first_name'+j]+" "+data[i]['last_name'+j]);
+                    }
+                }
+            }
             console.log(data);
+            return data;
         })
     }
 }

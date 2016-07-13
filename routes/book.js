@@ -4,12 +4,16 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    db.getGroupedAuthorsByBook().then(function() {
-        res.render('book');
+    // console.log("Route Reached");
+    Promise.all([db.getGroupedAuthorsByBook(),db.listAuthors()])
+    .then(function(data) {
+        console.log("HELLO")
+        var books = data[0];
+        var author = data[1];
+        // console.log(book);
+        console.log("HARD HAMMER")
+        res.render('book', {data:books, dataLength: books.length, author: author});
     })
-    // db.listBooks().then(function(books) {
-    //      res.render('book', {books: books});
-    // })
 });
 
 router.get('/addBook', function(req, res, next) {
@@ -22,6 +26,15 @@ router.get('/addBook', function(req, res, next) {
 router.post('/addBook', function(req, res, next) {
     db.addBook(req.body).then(function() {
         res.redirect('/book');
+    })
+})
+
+router.get('/:id/confirmDelete', function(req, res, next) {
+    Promise.all([db.getBookById(req.params.id),db.getAuthorsByBook(req.params.id)])
+        .then(function(data) {
+            var book = data[0];
+            var author = data[1];
+            res.render('deleteBook', {book: book, author: author});
     })
 })
 

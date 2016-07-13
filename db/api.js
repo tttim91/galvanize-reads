@@ -48,6 +48,13 @@ module.exports = {
             this.on('book_author.author_id', '=', 'author.id')
         }).where('book_author.book_id', '=', id);
     },
+    getBooksByAuthor: function(id) {
+        return knex('author').join('book_author', function() {
+            this.on('author.id', '=', 'book_author.author_id')
+        }).join('book', function() {
+            this.on('book_author.book_id', '=', 'book.id')
+        }).where('book_author.author_id', '=', id);
+    },
     getGroupedAuthorsByBook: function() {
         return knex('book').select('book.id as book_id', 'book.title', 'book.description', 'book.cover_url', 'author.id as author_id', 'author.first_name', 'author.last_name', 'author.biography').join('book_author', function() {
             this.on('book.id', '=', 'book_author.book_id')
@@ -61,6 +68,7 @@ module.exports = {
                     if(data[i].title == data[j].title) {
                         data[i]['first_name'+count]=data[j].first_name;
                         data[i]['last_name'+count]=data[j].last_name;
+                        data[i]['author_id'+count]=data[j].author_id;
                         data.splice(j,1);
                         j--;
                         count++;
@@ -73,14 +81,51 @@ module.exports = {
             for(var i=0; i<countArray.length; i++) {
                 for(var j=1; j<countArray[i]; j++) {
                     if(j==1){
-                        data[i].authors.push(data[i]['first_name']+" "+data[i]['last_name']);
+                        data[i].authors.push({name:data[i]['first_name']+" "+data[i]['last_name'],id:data[i].author_id});
                     }
                     else {
-                        data[i].authors.push(data[i]['first_name'+j]+" "+data[i]['last_name'+j]);
+                        data[i].authors.push({name:data[i]['first_name'+j]+" "+data[i]['last_name'+j],id:data[i]['author_id'+j]});
                     }
                 }
             }
-            console.log(data);
+            return data;
+        })
+    },
+    getGroupedBooksByAuthor: function() {
+        return knex('author').select('book.id as book_id', 'book.title', 'book.description', 'book.cover_url', 'author.id as author_id', 'author.first_name', 'author.last_name', 'author.biography', 'author.portrait_url').join('book_author', function() {
+            this.on('author.id', '=', 'book_author.author_id')
+        }).join('book', function() {
+            this.on('book.id', '=', 'book_author.book_id')
+        }).then(function(data) {
+            var count = 2;
+            var countArray = [];
+            for(var i=0; i<data.length;i++) {
+                for(var j=i+1; j<data.length; j++) {
+                    if(data[i].first_name+data[i].last_name == data[j].first_name+data[j].last_name) {
+                        data[i]['title'+count]=data[j].title;
+                        data[i]['description'+count]=data[j].description;
+                        data[i]['book_id'+count]=data[j].book_id;
+                        data[i]['cover_url'+count]=data[j].cover_url;
+                        data.splice(j,1);
+                        j--;
+                        count++;
+                    }
+                }
+                countArray.push(count);
+                count = 2;
+                data[i].books = [];
+            }
+            for(var i=0; i<countArray.length; i++) {
+                for(var j=1; j<countArray[i]; j++) {
+                    if(j==1){
+                        data[i].books.push({title:data[i]['title'],id:data[i].book_id, description:data[i].description, cover_url:data[i].cover_url});
+                    }
+                    else {
+                        data[i].books.push({title:data[i]['title'+j],id:data[i]['book_id'+j], description:data[i]['description'+j], cover_url:data[i]['cover_url']});
+                    }
+                }
+            }
+            console.log(data)
             return data;
         })
     }

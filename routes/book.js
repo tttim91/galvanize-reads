@@ -4,14 +4,11 @@ var db = require('../db/api');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    // console.log("Route Reached");
     Promise.all([db.getGroupedAuthorsByBook(),db.listAuthors()])
     .then(function(data) {
-        console.log("HELLO")
         var books = data[0];
         var author = data[1];
-        // console.log(book);
-        console.log("HARD HAMMER")
+        console.log("About to render page")
         res.render('book', {data:books, dataLength: books.length, author: author});
     })
 });

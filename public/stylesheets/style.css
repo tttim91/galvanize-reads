@@ -3,23 +3,18 @@
 :root {
   font-size: 1vw; }
 
-header {
-  position: relative;
-  background-color: #696969;
-  height: 18%;
-  display: flex;
-  color: #F8901F;
-  width: 100%;
-  top: 0;
-  left: 0; }
+.header {
+  background-color: #696969; }
 
 h1 {
+  position: relative;
   display: inline-block;
   width: 20%;
   font-size: 2.5rem;
   margin-left: 1rem;
   font-family: Merriweather;
-  color: #F8901F; }
+  color: #F8901F;
+  top: 5%; }
 
 .logo {
   padding: 0.5rem; }
@@ -36,14 +31,11 @@ h1 {
   align-items: center; }
 
 .links a {
-  text-decoration: none;
   color: #F8901F;
-  padding: 2rem;
-  background-color: lightgrey;
-  margin-right: 2rem;
-  height: 1rem;
-  font-size: 1.5rem;
-  text-align: center; }
+  margin-right: 2rem; }
+
+.headerButton {
+  color: #F8901F; }
 
 body {
   font-family: Muli; }
@@ -202,8 +194,9 @@ input, label {
   background-color: #696969;
   width: 20%;
   padding: 1.5rem;
-  left: 3%;
-  top: 5vh; }
+  left: 27%;
+  top: 20vh;
+  box-shadow: 3px 3px rgba(128, 128, 128, 0.2); }
 
 .searchLabel {
   font-weight: bold;

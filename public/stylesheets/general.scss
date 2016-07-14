@@ -181,8 +181,9 @@ input, label {
     background-color: $header-background-primary;
     width: 20%;
     padding: 1.5rem;
-    left: 3%;
-    top: 5vh;
+    left: 27%;
+    top: 20vh;
+    box-shadow: 3px 3px hsla(0,0,50%,.2)
 }
 
 .searchLabel {

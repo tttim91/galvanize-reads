@@ -4,20 +4,23 @@
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css' />
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.css' />
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <header>
-        <a href="/"><div class="logo">
-            <img class="logoImage" src="http://previews.123rf.com/images/cidepix/cidepix1007/cidepix100700120/7276492-Cartoon-orange-book-isolated-on-white-Stock-Vector-book-logo-icon.jpg" />
-            <h1>Galvanize Reads</h1>
-        </div></a>
-        <div class="links">
-            <a href="/book/page/0">Books</a>
-            <a href="/author">Authors</a>
-        </div>
-    </header>
+        <nav class="header">
+            <div class="nav-wrapper">
+                <a href="/" class="brand-logo">
+                    <img class="logoImage" src="https://brandfolder.com/galvanize/assets/4q8xd3ky/galvanize_galvanize-logo-text-logo_logo.png" />
+                    <h1>Galvanize Reads</h1>
+                </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a class="headerButton" href="/book/page/0">Books</a></li>
+                    <li><a class="headerButton" href="/author">Authors</a></li>
+                </ul>
+            </div>
+        </nav>
     {{{body}}}
   </body>
 </html>

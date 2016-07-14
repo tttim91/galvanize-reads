@@ -39,7 +39,6 @@ router.post('/addAuthor', function(req, res, next) {
                 portrait_url:req.body.portrait_url
                 }
     var book = req.body.book;
-    console.log(book)
     db.findNextAuthorId().then(function(id) {
         return db.addAuthor(author).then(function() {
             return db.addJoinTable(id.id+1, book)
@@ -82,7 +81,6 @@ router.get('/:id', function(req, res, next) {
         .then(function(data) {
         var author = data[0];
         var books = data[1];
-        console.log(books);
         res.render('authorDetail', {author:author, books:books});
     })
 })

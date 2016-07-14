@@ -45,7 +45,6 @@ router.post('/addBook', function(req, res, next) {
                 description:req.body.description,
                 cover_url:req.body.cover_url
                 }
-    console.log(book);
     var author = req.body.author;
     db.findNextBookId().then(function(id) {
         return db.addBook(book).then(function() {

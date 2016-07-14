@@ -214,7 +214,6 @@ module.exports = {
         })
     },
     addJoinTable: function(author_id, book_id) {
-        console.log("HARDCORE " + author_id + " " + book_id)
         return knex('book_author').insert({author_id:author_id, book_id:book_id});
     },
     findNextBookId: function() {

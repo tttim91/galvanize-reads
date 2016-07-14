@@ -2,6 +2,8 @@
 
 Website URL - https://fast-brook-80807.herokuapp.com/author/page/0
 
+Pivotal Tracker - https://www.pivotaltracker.com/n/projects/1656175
+
 An app for tracking technical books and the authors that wrote them
 
 #Installation

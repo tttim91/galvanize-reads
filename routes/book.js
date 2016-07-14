@@ -23,8 +23,6 @@ router.get('/page/:id', function(req, res, next) {
         .then(function(data) {
             var books = data[0][req.params.id];
             bookArrays = data[0];
-            console.log("test");
-            console.log(bookArrays);
             var author = data[1];
             res.render('book', {data:books, bookArrays:bookArrays, dataLength: books.length, author: author});
         })
@@ -70,7 +68,7 @@ router.get('/:id/confirmDelete', function(req, res, next) {
 
 router.get('/:id/delete', function(req, res, next) {
     db.deleteBook(req.params.id).then(function() {
-        res.redirect('/book');
+        res.redirect('/book/page/0');
     })
 })
 
@@ -84,7 +82,7 @@ router.get('/:id/edit', function(req, res, next) {
 
 router.post('/:id/edit', function(req, res, next) {
     db.editBook(req.params.id, req.body).then(function() {
-        res.redirect('/book');
+        res.redirect('/book/page/0');
     })
 })
 

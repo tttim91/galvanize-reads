@@ -27,4 +27,7 @@
 <p class="authorAmount">
     There are {{dataLength}} authors shown!!!
 </p>
+{{#each authorArrays}}
+    <a href="/author/page/{{@index}}">Page {{@index}}</a>
+{{/each}}
 <a class="addAuthor" href="/author/addAuthor">Add an Author</a>

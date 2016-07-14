@@ -1,19 +1,19 @@
 <div class="details">
     <h2 class="title">{{book.title}}</h2>
     <img class="bookPictureBig" src="{{book.cover_url}}" />
-    <p class="description">
+    <p class="detailDescription">
         {{book.description}}
     </p>
-    <p class="genre">
+    <p class="detailGenre">
         Genre: {{book.name}}
     </p>
-    <h3>Authors:</h3>
+    <p class="detailAuthorLabel">Authors:</p>
     {{#each authors}}
-        <a href="/author/{{this.id}}"><p>
+        <a class="detailAuthor" href="/author/{{this.id}}"><p>
             {{this.first_name}} {{this.last_name}}
         </p></a>
     {{/each}}
-    <a href="/book/{{book.book_id}}/edit"><i class="fa fa-edit edit"></i></a>
-    <a href="/book/{{book.book_id}}/confirmDelete"><i class="fa fa-remove remove"></i></a>
+    <a href="/book/{{book.book_id}}/edit"><i class="fa fa-edit edit detailEdit"></i></a>
+    <a href="/book/{{book.book_id}}/confirmDelete"><i class="fa fa-remove remove detailRemove"></i></a>
 </div>
-<a href="/book/page/0">See All Books</a>
+<a href="/book/page/0"><div class="seeAllBooks">See All Books</div></a>

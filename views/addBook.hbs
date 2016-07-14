@@ -1,29 +1,29 @@
 <section>
     <h2>Add Book</h2>
     <form action="/book/addBook" method="post">
-        <label for="title">Title
-            <input type="text" id="title" name="title">
+        <label  for="title"><span class="addBookTitleLabel">Title</span>
+            <input class="addBookTitle" type="text" id="title" name="title">
         </label>
-        <label for="genre">Genre
-            <select class="" name="genre_id" id="genre">
+        <label for="genre"><span class="addBookGenreLabel">Genre</span><br/>
+            <select class="addBookGenre" name="genre_id" id="genre">
                 {{#each genres}}
                 <option value="{{this.id}}">{{this.name}}</option>
                 {{/each}}
             </select>
         </label>
-        <label for="description">Description
-            <input type="text" id="description" name="description">
+        <label for="description"><span class="addBookDescriptionLabel"> Description</span>
+            <input class="addBookDescription" type="text" id="description" name="description">
         </label>
-        <label for="cover_url">Cover Picture URL
-            <input type="url" id="cover_url" name="cover_url">
+        <label for="cover_url"><span class="addBookCoverUrlLabel">Cover Picture URL</span>
+            <input class="addBookCoverUrl" type="url" id="cover_url" name="cover_url">
         </label>
-        <label for="author">Author
-            <select class="" name="author" id="author">
+        <label for="author"><span class="addBookAuthorLabel">Author</span><br/>
+            <select class="addBookAuthor" name="author" id="author">
                 {{#each authors}}
                     <option value="{{this.id}}">{{this.first_name}} {{this.last_name}}</option>
                 {{/each}}
             </select>
         </label>
-        <input type="submit" value="Add Book">
+        <input class="addBookSubmit" type="submit" value="Add Book">
     </form>
 </section>

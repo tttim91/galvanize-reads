@@ -23,7 +23,7 @@ router.get('/page/:id', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-    res.redirect('/author')
+    res.redirect('/author/page/0')
 })
 
 router.get('/addAuthor', function(req, res, next) {

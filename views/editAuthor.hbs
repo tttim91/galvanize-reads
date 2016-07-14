@@ -1,18 +1,18 @@
 <section class="addAuthor">
-    <h2>Add Author</h2>
+    <h2>Edit Author</h2>
     <form action="/author/{{author.id}}/edit" method="post">
-        <label for="first_name">First Name
-            <input type="text" id="first_name" name="first_name" value="{{author.first_name}}">
+        <label for="first_name"><span class="addAuthorFirstNameLabel">First Name</span>
+            <input class="addAuthorFirstName" type="text" id="first_name" name="first_name" value="{{author.first_name}}">
         </label>
-        <label for="last_name">Last Name
-            <input type="text" id="last_name" name="last_name" value="{{author.last_name}}">
+        <label for="last_name"><span class="addAuthorLastNameLabel">Last Name</span>
+            <input class="addAuthorLastName" type="text" id="last_name" name="last_name" value="{{author.last_name}}">
         </label>
-        <label for="biography">Biography
-            <input type="text" id="biography" name="biography" value="{{author.biography}}">
+        <label for="biography"><span class="addAuthorBiographyLabel">Biography</span>
+            <input class="addAuthorBiography" type="text" id="biography" name="biography" value="{{author.biography}}">
         </label>
-        <label for="portait_url">Portrait URL
-            <input type="url" id="portrait_url" name="portrait_url" value={{author.portrait_url}}>
+        <label for="portait_url"><span class="addAuthorPortraitUrlLabel">Portrait URL</span>
+            <input class="addAuthorPortraitUrl" type="url" id="portrait_url" name="portrait_url" value={{author.portrait_url}}>
         </label>
-        <input type="submit" value="Add Author">
+        <input class="addAuthorSubmit" type="submit" value="Edit Author">
     </form>
 </section>

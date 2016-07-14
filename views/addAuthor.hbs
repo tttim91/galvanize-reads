@@ -1,25 +1,25 @@
 <section>
     <h2>Add Author</h2>
     <form action="/author/addAuthor" method="post">
-        <label for="first_name">First Name
-            <input type="text" id="first_name" name="first_name">
+        <label for="first_name"><span class="addAuthorFirstNameLabel">First Name</span>
+            <input class="addAuthorFirstName" type="text" id="first_name" name="first_name">
         </label>
-        <label for="last_name">Last Name
-            <input type="text" id="last_name" name="last_name">
+        <label for="last_name"><span class="addAuthorLastNameLabel">Last Name</span>
+            <input class="addAuthorLastName" type="text" id="last_name" name="last_name">
         </label>
-        <label for="biography">Biography
-            <input type="text" id="biography" name="biography">
+        <label for="biography"><span class="addAuthorBiographyLabel">Biography</span>
+            <input class="addAuthorBiography" type="text" id="biography" name="biography">
         </label>
-        <label for="portait_url">Portrait URL
-            <input type="url" id="portrait_url" name="portrait_url">
+        <label for="portait_url"><span class="addAuthorPortraitUrlLabel">Portrait URL</span>
+            <input class="addAuthorPortraitUrl" type="url" id="portrait_url" name="portrait_url">
         </label>
-        <label for="book">Book
-            <select class="" name="book" id="book">
+        <label for="book"><span class="addAuthorBookLabel">Book</span><br/>
+            <select class="addAuthorBook" name="book" id="book">
                 {{#each books}}
                     <option value="{{this.book_id}}">{{this.title}}</option>
                 {{/each}}
             </select>
         </label>
-        <input type="submit" value="Add Author">
+        <input class="addAuthorSubmit" type="submit" value="Add Author">
     </form>
 </section>

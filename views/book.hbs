@@ -1,18 +1,12 @@
 <h2>Books</h2>
-<form class="" action="/book/page/0" method="GET">
-    <label for="bookSearch">Search for a book:
-        <input type="text" name="bookSearch" id="bookSearch" placeholder="Search for a book">
-    </label>
-    <input type="submit" name="name" value="Submit">
-</form>
-<form class="" action="/book/page/0" method="GET">
-    <label for="genre">Genre Filter:
-        <select class="" name="genre" id="genre">
-            <option value="Javascript">Javascript</option>
-            <option value="Python">Python</option>
+<h3>Search for a book by title or genre:</h3>
+<form class="bookForm" action="/book/page/0" method="GET">
+        <input type="text" name="bookSearch" id="bookSearch" placeholder="Search for a book" class="bookSearch">
+        <select name="genre" class="bookGenre">
+          <option value="Javascript">Javascript</option>
+          <option value="Python">Python</option>
         </select>
-    </label>
-    <input type="submit" name="name" value="Submit">
+        <input type="submit" name="name" value="Submit" class="bookSearchSubmit">
 </form>
 <div class="books">
     {{#each data}}
@@ -23,8 +17,8 @@
             <div>
                 <p class="title">{{this.title}}</p>
                 <p class="genre">{{this.name}}</p>
-                <p class="description">{{this.description}}</p>
-                <h3>Authors:</h3>
+                <p class="description"><span class="descriptionHeader">Description:</span><br/> {{this.description}}</p>
+                <p class="authorHeader">Authors:</p>
                 {{#each authors}}
                     <a class="bookAuthor" href="/author/{{this.id}}">{{this.name}}</a><br/>
                 {{/each}}
@@ -38,6 +32,11 @@
     There are {{dataLength}} books shown!!!
 </p>
 {{#each bookArrays}}
-    <a href="/book/page/{{@index}}">Page {{@index}}</a>
+    <a class="pageLink" href="/book/page/{{@index}}">Page {{@index}}</a>
 {{/each}}
-<a class="addBook" href="/book/addBook">Add a Book</a>
+<br/>
+<a class="addBook" href="/book/addBook">
+    <div class="addBookContainer">
+        Add a Book
+    </div>
+</a>

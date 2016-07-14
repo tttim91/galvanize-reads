@@ -1,11 +1,13 @@
 .header {
     background-color: $header-background-primary;
+    display: flex;
+    justify-content: space-between;
 }
 
 h1 {
     position: relative;
     display: inline-block;
-    width: 20%;
+    width: 30%;
     font-size: 2.5rem;
     margin-left: 1rem;
     font-family: Merriweather;
@@ -25,16 +27,30 @@ h1 {
 }
 
 .links {
+    position: relative;
+    top: 2vh;
+    padding: 2rem;
+    list-style-type: none;
+    margin-right: 2rem;
+    display: inline;
+    font-size: 2rem;
+    color: $galvanize-primary;
+    &:visited {
+        color: $galvanize-primary;
+    }
+    &:hover {
+        background-color: $button-color-change;
+        text-decoration: none;
+    }
+}
+
+.linksDiv {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    width: 30%;
+    height: 100%;
 }
 
-.links a{
-    color: $galvanize-primary;
-    margin-right: 2rem;
-}
-
-.headerButton {
-    color: $galvanize-primary;
+.brand-logo {
+    width: 70%;
 }

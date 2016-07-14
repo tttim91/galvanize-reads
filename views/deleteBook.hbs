@@ -1,13 +1,13 @@
 <h2>Are you sure you want to delete {{book.title}}?</h2>
-<a href="/book/{{book.id}}/delete">Yes</a>
-<a href="/book/page/0">No!! Go back to books!!</a>
-<img src="{{book.cover_url}}" />
-<p>
+<a href="/book/{{book.id}}/delete"><div class="deleteYes">Yes</div></a>
+<a href="/book/page/0"><div class="deleteNo">No!! Go back to books!!</div></a>
+<img class="deleteImage" src="{{book.cover_url}}" />
+<p class="deleteDescription">
     {{book.description}}
 </p>
-<h3>Authors:</h3>
+<h3 class="deleteAuthorsLabel">Authors:</h3>
 {{#each author}}
-    <a href="/author/{{this.id}}">
+    <a class="deleteAuthors" href="/author/{{this.id}}">
         {{this.first_name}} {{this.last_name}}
-    </a>
+    </a><br/>
 {{/each}}

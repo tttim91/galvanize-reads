@@ -1,22 +1,22 @@
 <section class="addBook">
-    <h2>Add Book</h2>
+    <h2>Edit Book</h2>
     <form action="/book/{{book.id}}/edit" method="post">
-        <label for="title">Title
-            <input type="text" id="title" name="title" value="{{book.title}}">
+        <label for="title"><span class="addBookTitleLabel">Title</span>
+            <input class="addBookTitle" type="text" id="title" name="title" value="{{book.title}}">
         </label>
-        <label for="genre">Genre
-            <select class="" name="genre_id" id="genre">
+        <label for="genre"><span class="addBookGenreLabel">Genre</span><br/>
+            <select class="addBookGenre" name="genre_id" id="genre">
                 {{#each genres}}
                 <option value="{{this.id}}">{{this.name}}</option>
                 {{/each}}
             </select>
         </label>
-        <label for="description">Description
-            <input type="text" id="description" name="description" value="{{book.description}}">
+        <label for="description"><span class="addBookDescriptionLabel">Description</span>
+            <input class="addBookDescription" type="text" id="description" name="description" value="{{book.description}}">
         </label>
-        <label for="cover_url">Cover Picture URL
-            <input type="url" id="cover_url" name="cover_url" value={{book.cover_url}}>
+        <label for="cover_url"><span class="addBookCoverUrl">Cover Picture URL</span>
+            <input class="addBookCoverUrl" type="url" id="cover_url" name="cover_url" value={{book.cover_url}}>
         </label>
-        <input type="submit" value="Edit Book">
+        <input class="addBookSubmit" type="submit" value="Edit Book">
     </form>
 </section>

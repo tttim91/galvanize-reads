@@ -1,16 +1,16 @@
 <div class="details">
     <h2 class="authorName">{{author.first_name}} {{author.last_name}}</h2>
-    <img class="authorPictureBig" src="{{author.portrait_url}}" />
-    <p class="biography">
+    <img class="bookPictureBig" src="{{author.portrait_url}}" />
+    <p class="detailDescription">
         {{author.biography}}
     </p>
-    <h3>Books:</h3>
+    <p class="detailAuthorLabel">Books:</p>
     {{#each books}}
-        <a href="/book/{{this.id}}"><p>
+        <a class="detailAuthor" href="/book/{{this.id}}"><p>
             {{this.title}}
         </p></a>
     {{/each}}
-    <a href="/author/{{author.id}}/edit"><i class="fa fa-edit edit"></i></a>
-    <a href="/author/{{author.id}}/confirmDelete"><i class="fa fa-remove remove"></i></a>
+    <a href="/author/{{author.id}}/edit"><i class="fa fa-edit edit detailEdit"></i></a>
+    <a href="/author/{{author.id}}/confirmDelete"><i class="fa fa-remove remove detailRemove"></i></a>
 </div>
-<a href="/author/page/0">See All Authors</a>
+<a href="/author/page/0"><div class="seeAllBooks">See All Authors</div></a>

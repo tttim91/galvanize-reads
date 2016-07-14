@@ -1,9 +1,9 @@
 <h2>Authors</h2>
-<form class="" action="/author" method="GET">
-    <label for="authorSearch">Search for an author:
-        <input type="text" name="authorSearch" id="authorSearch" placeholder="Search for an author">
+<form class="authorForm" action="/author/page/0" method="GET">
+    <label for="authorSearch" class="authorSearchLabel">Search for an author:
+        <input type="text" name="authorSearch" id="authorSearch" placeholder="Search for an author" class="authorSearch">
     </label>
-    <input type="submit" name="name" value="submit">
+    <input type="submit" name="name" value="submit" class="authorSearchSubmit">
 </form>
 <ul class="authors">
     {{#each data}}
@@ -13,10 +13,10 @@
             </div>
             <div>
                 <li class="authorName">{{this.first_name}} {{this.last_name}}</li>
-                <li class="biography">{{this.biography}}</li>
-                <h3>Books Written:</h3>
+                <li class="biography"><span class="biographyHeader">Biography:</span><br/> {{this.biography}}</li>
+                <p class="booksWritten">Books Written:</p>
                 {{#each books}}
-                    <a href="/book/{{this.id}}">{{this.title}}</a><br/>
+                    <a class-"booksAuthorWritten" href="/book/{{this.id}}">{{this.title}}</a><br/>
                 {{/each}}
                 <a href="/author/{{this.author_id}}/edit"><i class="fa fa-edit edit"></i></a>
                 <a href="/author/{{this.author_id}}/confirmDelete"><i class="fa fa-remove remove"></i></a>
@@ -28,6 +28,10 @@
     There are {{dataLength}} authors shown!!!
 </p>
 {{#each authorArrays}}
-    <a href="/author/page/{{@index}}">Page {{@index}}</a>
+    <a class="pageLink" href="/author/page/{{@index}}">Page {{@index}}</a>
 {{/each}}
-<a class="addAuthor" href="/author/addAuthor">Add an Author</a>
+<a href="/author/addAuthor">
+    <div class="addBookContainer">
+        Add an Author
+    </div>
+</a>

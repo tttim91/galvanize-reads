@@ -1,6 +1,6 @@
 <h2>Are you sure you want to delete {{author.first_name}} {{author.last_name}}?</h2>
 <a href="/author/{{author.id}}/delete">Yes</a>
-<a href="/author">No!! Go back to authors!!</a>
+<a href="/author/page/:id">No!! Go back to authors!!</a>
 <img src="{{author.portrait_url}}" />
 <h3>Books:</h3>
 {{#each books}}

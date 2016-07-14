@@ -90,9 +90,9 @@ module.exports = {
             }
             var books = [];
             var page = 1;
-            var maxPage = Math.ceil(data.length/10);
+            var maxPage = Math.ceil(data.length/9);
             for(var i=0; i<maxPage; i++) {
-                books.push(data.slice(i*10, i*10+10))
+                books.push(data.slice(i*9, i*9+9))
             }
             return books;
         })

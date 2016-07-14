@@ -22,10 +22,11 @@ router.get('/page/:id', function(req, res, next) {
         Promise.all([db.getGroupedAuthorsByBook(),db.listAuthors()])
         .then(function(data) {
             var books = data[0][req.params.id];
-            console.log("HELLO");
-            console.log(books)
+            bookArrays = data[0];
+            console.log("test");
+            console.log(bookArrays);
             var author = data[1];
-            res.render('book', {data:books, dataLength: books.length, author: author});
+            res.render('book', {data:books, bookArrays:bookArrays, dataLength: books.length, author: author});
         })
     }
 });
@@ -52,7 +53,7 @@ router.post('/addBook', function(req, res, next) {
         return db.addBook(book).then(function() {
             db.addJoinTable(author, id.id+1)
             .then(function() {
-                res.redirect('/book')
+                res.redirect('/book/page/0')
             })
         })
     })

@@ -1,11 +1,11 @@
 <h2>Books</h2>
-<form class="" action="/book" method="GET">
+<form class="" action="/book/page/0" method="GET">
     <label for="bookSearch">Search for a book:
         <input type="text" name="bookSearch" id="bookSearch" placeholder="Search for a book">
     </label>
     <input type="submit" name="name" value="Submit">
 </form>
-<form class="" action="/book" method="GET">
+<form class="" action="/book/page/0" method="GET">
     <label for="genre">Genre Filter:
         <select class="" name="genre" id="genre">
             <option value="Javascript">Javascript</option>
@@ -37,6 +37,7 @@
 <p class="bookAmount">
     There are {{dataLength}} books shown!!!
 </p>
-<a href="/book/page/0">Page 1</a>
-<a href="/book/page/1">Page 2</a>
+{{#each bookArrays}}
+    <a href="/book/page/{{@index}}">Page {{@index}}</a>
+{{/each}}
 <a class="addBook" href="/book/addBook">Add a Book</a>
